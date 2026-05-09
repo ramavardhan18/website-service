@@ -29,8 +29,7 @@ def create_service(
 
     new_service = Service(
         title=request.title,
-        description=request.description,
-        icon=request.icon
+        description=request.description
     )
 
     db.add(new_service)
@@ -76,7 +75,6 @@ def update_service(
 
     service.title = request.title
     service.description = request.description
-    service.icon = request.icon
 
     db.commit()
 

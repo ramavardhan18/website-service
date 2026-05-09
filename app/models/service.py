@@ -21,8 +21,6 @@ class Service(Base):
 
     description = Column(Text)
 
-    icon = Column(String(100))
-
     created_at = Column(
         TIMESTAMP,
         server_default=func.now()
