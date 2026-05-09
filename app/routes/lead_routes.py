@@ -6,6 +6,8 @@ from fastapi import (
 
 from sqlalchemy.orm import Session
 
+from app.utils.send_email import send_lead_email
+
 from app.config.database import get_db
 
 from app.models.lead import Lead
@@ -42,6 +44,8 @@ def create_lead(
     db.commit()
 
     db.refresh(new_lead)
+
+    send_lead_email(new_lead)
 
     return {
         "message": "Lead submitted successfully"
